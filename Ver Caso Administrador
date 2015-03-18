@@ -85,10 +85,12 @@
 		
 			<br></br>
 				
+		<div class="footer">
 			<div class="row">
 				<a class="btn btn-primary pull-right" href="PaginaDeAdministrador.html">Cancelar</a>
-				<a class="btn btn-primary pull-right" style="margin-right: 4px"> Print </a>
+				<a class="btn btn-primary pull-right" style="margin-right: 4px" href="javascript:window.print()"> Print </a>
 			</div>
+		</div>
 
 			<br></br>
 
