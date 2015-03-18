@@ -1,0 +1,42 @@
+body {
+    background-color: #EFFEDE ;
+}
+
+.navbar-default {
+  border-color:  #0000FF;
+  border-bottom-width:2px;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+  font-size: 170%;
+}
+
+h1 {
+    color: black;
+    text-align: left;
+}
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+
+table, th, td {
+    border: 2px solid black;
+    font-size: 18px;
+
+}
+p {
+    font-family: "Arial";
+    text-align: center;
+    color: black;
+    
+}
+
+a{
+	font-family: "Arial";
+	color: black;
+}
