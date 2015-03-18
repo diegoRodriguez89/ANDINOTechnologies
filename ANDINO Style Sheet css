@@ -40,3 +40,9 @@ a{
 	font-family: "Arial";
 	color: black;
 }
+
+@media print{ 
+no.print, .footer{
+  display: none;
+  }
+}
