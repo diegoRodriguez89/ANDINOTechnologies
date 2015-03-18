@@ -97,13 +97,15 @@
 		</div>
 		
 		<br></br>
+		<div class="footer">
 		<div class="row">
 			<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PerfildeAbogado.html">Cancelar</a>
 			<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PerfildeAbogado.html">Someter</a>
-			<a class="btn btn-primary pull-right" style="margin-right: 4px"> Print </a>
+			<a class="btn btn-primary pull-right" style="margin-right: 4px" href="javascript:window.print()"> Print </a>
 			<button type="button" class="btn btn-primary pull-right" style="margin-right: 4px">Editar</button>
-			
 		</div>
+		</div>
+		
 		</div>
 
 		<script src="js/jquery-1.11.2.min.js"></script>
