@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Pagina de Casos Administrator</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/ANDINOstyleSheet.css">
+
+	</head>
+	<body>
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    
+		    <div class="navbar-header">
+		      <a class="navbar-brand">ANDINO Legal Solution</a>
+		    </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <form class="navbar-form navbar-right " role="logout">
+                <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
+              </form>
+            </div>
+		  </div>
+		</nav>
+			<div class="container">	
+				<h1>Página de Casos</h1>
+
+
+			<br></br>
+			<table>
+
+    		<thead>
+
+        		<tr>
+
+            	<th># Caso</th>
+            	<th>Nombre</th>
+            	<th>Fecha de Vencimineto</th>
+            	<th>Tipo de Documento</th>
+            	<th>Estado</th>
+            	<th>Comentarios</th>
+
+            	</tr>
+
+   			</thead>
+   			    <tbody>
+        <tr>
+            <td>1589</td>
+            <td>Noel Sopeña</td>
+            <td>15/02/2015</td>
+            <td>Subpeona</td>
+            <td>Procesado</td>
+            <td></td>
+            <td><p><p><a class="btn btn-primary" href="ViewCaseAdministrator.html">View</a></p></p></td>
+        </tr>
+        <tr>
+            <td>2018</td>
+            <td>Diego Rodríguez</td>
+            <td>21/02/2015</td>
+            <td>Demanda</td>
+            <td>No Procesado</td>
+            <td></td>
+            <td><p><p><a class="btn btn-primary" href="ViewCaseAdministrator.html">View</a></p></p></td>
+        </tr>
+        <tr>
+            <td>3598</td>
+            <td>Antoin Abboud</td>
+            <td>22/02/2015</td>
+            <td>Moción</td>
+            <td>No Procesado</td>
+            <td></td>
+            <td><p><p><a class="btn btn-primary" href="ViewCaseAdministrator.html">View</a></p></p></td>
+            </tr>
+    	</tbody>
+		</table>
+        <br></br>
+
+		<a class="btn btn-primary pull-right" href="PaginaDeAdministrador.html">Cancelar</a>
+		</div>	
+		
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
