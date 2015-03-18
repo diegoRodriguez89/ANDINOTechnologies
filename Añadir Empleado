@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Añadir Empleado </title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		     <a class="navbar-brand">ANDINO Legal Solution</a>
+		  	 
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <form class="navbar-form navbar-right	" role="logout">
+		        <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
+		      </form>
+		    </div>
+		  </div>
+		</nav>
+		
+		<div class="container">
+			<h1> Añadir Empleado </h1>
+			
+			<br></br>
+			
+			<form class="form-horizontal" role="form">
+				<div class="form-group"> 
+					<label for="employee_name" class="col-sm-2 control-label">Nombre:</label> 
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="employee_name" placeholder="Primer Nombre del Empleado"> 
+					</div>
+				</div> 
+
+				<div class="form-group"> 
+					<label for="employee_lastname" class="col-sm-2 control-label">Apellido Paterno:</label> 
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="employee_lastname" placeholder="Primer Apellido del Empleado"> 
+					</div> 
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="employee_lastname2" class="col-sm-2 control-label">Apellido Materno:</label> 
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="employee_lastname2" placeholder="Segundo Apellido del Empleado"> 
+					</div> 
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="email_address" class="col-sm-2 control-label">Correo Electrónico:</label>
+					<div class="col-sm-5"> 
+						<input type="text" class="form-control" id="email_address" placeholder=" Correo Electrónico "> 
+					</div> 
+				</div>
+				
+				<div class="form-group"> 
+					<label for="id_number" class="col-sm-2 control-label">Número de Identificación:</label> 
+					<p></p>		
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="id_number" placeholder="Número de Identificación"> 
+					</div> 
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="telephone_num" class="col-sm-2 control-label">Número de Teléfono:</label>
+					<div class="col-sm-5"> 
+						<input type="text" class="form-control" id="telephone_num" placeholder=" Número de Teléfono "> 
+					</div> 
+				</div>
+					
+				<div class="form-group"> 
+					<label for="Type_Employee" class="col-sm-2 control-label">Tipo de Empleado:</label>
+					<div class="col-sm-5">
+					<select class="form-control" id="Type_Employee">
+						<option> Tipo de Empleado </option>
+						<option> Técnicas de Sistemas de Oficina III </option>
+						<option> Administradora del Sistema I </option>
+						<option> Asistente Administrativa </option>
+						<option> Cadete </option>
+						<option> Agente </option>
+						<option> Sargento </option>
+						<option> Teniente </option>
+						<option> Capitan </option>
+						<option> Inspector </option>
+						<option> Comandante </option>
+						<option> Teniente Coronel </option>
+						<option> Coronel </option>
+						<option> Reservista </option>
+					</select>
+				</div>
+			</div>
+
+				<br></br>
+						
+				<div class="row">
+					<a class="btn btn-primary pull-right" href="PaginaDeAdministrador.html">Cancelar</a>
+					<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PaginaDeAdministrador.html">Añadir</a>
+				</div>
+				
+			</form>
+		</div>
+				
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+	</body>
+</html>
