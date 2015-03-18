@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Generar Estadísticas Abogado</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <a class="navbar-brand">ANDINO Legal Solution</a>
+		    </div>
+
+		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <form class="navbar-form navbar-right	" role="logout">
+		        <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
+		      </form>
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+		<div class="container">
+			<h1>Generar Estadísticas</h1>
+			
+			<br></br>
+
+			<form class="form-horizontal" role="form">
+				<div class="form-group"> 
+					<label for="Type_Document" class="col-sm-1 control-label">Por:</label> 
+					<div class="col-sm-5">
+						<select class="form-control" id="Type_Document">
+						<option> Tipo de Documento </option>
+						<option> Demanda </option>
+						<option> Moción </option>
+						<option> Subpeona </option>
+						<option> Requerimientos </option>
+					</select>
+					</div>
+				</div> 
+
+				<div class="form-group"> 
+					<label for="cuantía" class="col-sm-1 control-label">Cuantía:</label> 
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="cuantía" placeholder="Cantidad"> 
+					</div> 
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="Date_inicial" class="col-sm-1 control-label">Fecha de inicio:</label> 
+					<p></p>
+					<div class="col-sm-5">
+						<input type="Date" class="form-control" id="Date_inicial"> 
+					</div> 
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="Date_deadline" class="col-sm-1 control-label">Fecha de Vencimineto:</label>
+					<p></p>
+					<div class="col-sm-5"> 
+						<input type="Date" class="form-control" id="Date_deadline"> 
+					</div> 
+				</div>
+			</form>
+			
+			<p></p>
+			
+			<div class="row">
+				<a class="btn btn-primary pull-right" href="PerfildeAbogado.html">Cancelar</a>
+				<a class="btn btn-primary pull-right" style="margin-right: 4px" href="#.html">Generar</a>
+			</div>
+		</div>
+
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	
+	</body>
+</html>
