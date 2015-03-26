@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- This is the name of the page -->
 		<title> Añadir Empleado </title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
 		<meta charset="UTF-8">
 	</head>
+
+	<!-- This is to only permit the characters that we allow to input to the system -->
+	<script type="text/JavaScript">
+		function valid(f) {
+		!(/^[A-z&#209;&#241;0-9; ;.;,]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z&#209;&#241;0-9; ;.;,]/ig,''):null;
+		} 
+	</script>
 	
 	<body>
+		<!-- Static navbar -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
+		     <!-- This part of the code is for the name of the application -->
 		     <a class="navbar-brand">ANDINO Legal Solution</a>
+		     <!-- Brand and toggle get grouped for better mobile display -->
+		     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                     </button>
 		  	 
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <form class="navbar-form navbar-right	" role="logout">
+		      	<!-- This button is to change the language of the page -->
+		      	<button class="btn btn-default">English</button>
+		      	<!-- This button is to logout of the system -->
 		        <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
 		      </form>
 		    </div>
@@ -25,6 +45,7 @@
 		</nav>
 		
 		<div class="container">
+			<!-- This is the name in the header of the page -->
 			<h1> Añadir Empleado </h1>
 			
 			<br></br>
@@ -33,28 +54,32 @@
 				<div class="form-group"> 
 					<label for="employee_name" class="col-sm-2 control-label">Nombre:</label> 
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="employee_name" placeholder="Primer Nombre del Empleado"> 
+						<!-- This input text is for the name of the employee -->
+						<input type="text" class="form-control" id="employee_name" placeholder="Primer Nombre del Empleado" onkeyup="valid(this)" onblur="valid(this)"> 
 					</div>
 				</div> 
 
 				<div class="form-group"> 
 					<label for="employee_lastname" class="col-sm-2 control-label">Apellido Paterno:</label> 
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="employee_lastname" placeholder="Primer Apellido del Empleado"> 
+						<!-- This input text is for the fisrt last name of the employee -->
+						<input type="text" class="form-control" id="employee_lastname" placeholder="Primer Apellido del Empleado" onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div> 
 				
 				<div class="form-group"> 
 					<label for="employee_lastname2" class="col-sm-2 control-label">Apellido Materno:</label> 
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="employee_lastname2" placeholder="Segundo Apellido del Empleado"> 
+						<!-- This input text is for the second last name of the employee -->
+						<input type="text" class="form-control" id="employee_lastname2" placeholder="Segundo Apellido del Empleado" onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div> 
 				
 				<div class="form-group"> 
 					<label for="email_address" class="col-sm-2 control-label">Correo Electrónico:</label>
 					<div class="col-sm-5"> 
-						<input type="text" class="form-control" id="email_address" placeholder=" Correo Electrónico "> 
+						<!-- This input text is for the email of the employee -->
+						<input type="text" class="form-control" id="email_address" placeholder=" Correo Electrónico " onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div>
 				
@@ -62,20 +87,23 @@
 					<label for="id_number" class="col-sm-2 control-label">Número de Identificación:</label> 
 					<p></p>		
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="id_number" placeholder="Número de Identificación"> 
+						<!-- This input text is for the id of the employee -->
+						<input type="text" class="form-control" id="id_number" placeholder="Número de Identificación" onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div> 
 				
 				<div class="form-group"> 
 					<label for="telephone_num" class="col-sm-2 control-label">Número de Teléfono:</label>
 					<div class="col-sm-5"> 
-						<input type="text" class="form-control" id="telephone_num" placeholder=" Número de Teléfono "> 
+						<!-- This input text is for the telephone number of the employee -->
+						<input type="text" class="form-control" id="telephone_num" placeholder=" Número de Teléfono " onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div>
 					
 				<div class="form-group"> 
 					<label for="Type_Employee" class="col-sm-2 control-label">Tipo de Empleado:</label>
 					<div class="col-sm-5">
+						<!-- This dropdown is for selectinf the type of employee -->
 					<select class="form-control" id="Type_Employee">
 						<option> Tipo de Empleado </option>
 						<option> Técnicas de Sistemas de Oficina III </option>
@@ -98,7 +126,9 @@
 				<br></br>
 						
 				<div class="row">
+					<!-- This button is for canceling everithing and returns to the administrators page -->
 					<a class="btn btn-primary pull-right" href="PaginaDeAdministrador.html">Cancelar</a>
+					<!-- This button is for adding a employee to the system -->
 					<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PaginaDeAdministrador.html">Añadir</a>
 				</div>
 				
