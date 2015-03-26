@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is the name of the page -->
+		<title> Contrato </title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
+	</head>
+
+	<!-- This is to only permit the characters that we allow to input to the system -->
+	<script type="text/JavaScript">
+		function valid(f) {
+		!(/^[A-z0-9; ;.;,;#]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.;,;&;#]/ig,''):null;
+		} 
+	</script>
+	
+	<body>
+		<!-- Static navbar -->
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    
+		    <div class="navbar-header">
+		 	<!-- This part of the code is for the name of the application -->
+		    <a class="navbar-brand">ANDINO Legal Solution</a>
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+            </button>
+		 
+		    </div>
+
+		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <form class="navbar-form navbar-right	" role="logout">
+		      	<!-- This button is to change the language of the page -->
+		      	<button class="btn btn-default">English</button>
+		      	<!-- This button is to logout of the system -->
+		        <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
+		      </form>
+		    </div>
+		   
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+		<div class="container">
+			<!-- This is the name in the header of the page -->
+			<h1> Contrato </h1>
+			
+			<br></br>
+			
+			<div class="row">
+				<!-- This input is to select the document date -->
+				<label class="col-md-2"> Fecha Comunicado<input type="date" class="form-control"></label>
+				<!-- This input is to select the date that the document was received -->
+				<label class="col-md-2 col-md-offset-1">Fecha Recibido<input type="date" class="form-control"></label>
+				<!-- This input is to select the document deadline date -->
+				<label class="col-md-2 col-md-offset-1">Fecha Vencimiento<input type="date" class="form-control"></label>
+	
+			</div>
+			<p></p>
+			<div class="row">
+				<!-- This input box is to insert the contract number -->
+				<div class="col-md-2"><input type="text" class="form-control" placeholder="# Contrato" onkeyup="valid(this)" onblur="valid(this)"></div>
+				<!-- This input box is to insert the name of contractor the  -->
+				<div class="col-md-5 col-md-offset-1"><input type="text" class="form-control" placeholder="Nombre" onkeyup="valid(this)" onblur="valid(this)"></div>
+			</div>
+			
+			<p></p>
+			<div class="row">
+				<div class="col-md-3">
+					<!-- This dropdown is to select the type of contract -->
+					<select class="form-control">
+						<option> Tipo de Contrato </option>
+						<option> Compra, Venta y Alquiler de Equipo, Vehiculos y Otros </option>
+						<option> Compra, Venta y/0 alquiler de inmuebles </option>
+						<option> Compra de Materiales, Suministros y Efectos </option>
+						<option> Adquisicíon de Seguros </option>
+						<option> Construcción y Reparación de Vías Públicas </option>
+						<option> Construcción y Reparación de Estructuras </option>
+						<option> Préstamos </option>
+						<option> Rescisión de Contratos </option>
+						<option> Servicios de Adiestramineto e Orientación </option>
+						<option> Servicios de Consultoría </option>
+						<option> Servicios de Publicidad de representación o artísticos </option>
+						<option> Servicios misceláneos no personales </option>
+						<option> Servicios personales no profesionales </option>
+						<option> Servicios Relacionados con la Salud </option>
+						<option> Servicios Técnicos </option>
+						<option> Transferencia de Fondos </option>
+						<option> Acuerdos no Financieros </option>
+						<option> Compra y Venta de Obras de Artes y Tesoros Históricos </option>
+						<option> Energia Renovable y Gas Natural </option>
+						<option> Servicios Profesionales </option>
+						<option> Servicios Relacionados a los Sistemas de Información </option>
+						<option> Recogido de Desperdicios y Reciclaje </option>
+						<option> Interagenciales </option>
+					</select>
+				</div>
+
+				<!-- This input box is to insert the type of service of the contract -->
+				<div class="col-md-5"><input type="text" class="form-control" placeholder="Tipo de Servicio" onkeyup="valid(this)" onblur="valid(this)"></div>
+
+
+			</div>
+
+			<p></p>
+			<div class="row">
+				<!-- This input box is for the name of the destinatary -->
+				<div class="col-md-3 "><input type="text" class="form-control" placeholder="Destinatario" onkeyup="valid(this)" onblur="valid(this)"></div>
+				<!-- This input box is for the name of the region of the destinatary -->
+				<div class="col-md-4 "><input type="text" class="form-control" placeholder="Region" onkeyup="valid(this)" onblur="valid(this)"></div>
+			</div>
+
+			<p></p>
+			<!-- This input box is to write some issue of the contract -->
+			<textarea class="form-control .input-lg" rows="5" placeholder="Asunto" onkeyup="valid(this)" onblur="valid(this)"></textarea>
+			
+			<p></p>
+			<!-- This input box is to write some comments of the contract -->
+			<textarea class="form-control .input-lg" rows="5" placeholder="Comentario" onkeyup="valid(this)" onblur="valid(this)"></textarea>
+			
+			<br></br>
+			
+			<div class="footer">
+			<div class="row">
+				<!-- This button is for canceling everithing and returns to the secretary page -->
+				<a class="btn btn-primary pull-right" href="PaginaDeSecretaria.html">Cancelar</a>
+				<!-- This button is for adding a contract to the system and returns to the secretary page -->
+				<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PaginaDeSecretaria.html">Someter</a>
+				<!-- This button is for printing a contract -->
+				<a class="btn btn-primary pull-right" style="margin-right: 4px" href="javascript:window.print()"> Print </a>
+				<!-- This button is for uploading a contract document to the system -->
+				<input type="file" name="upload" class="btn btn-primary pull-right" style="margin-right: 4px">
+			</div>
+			</div>
+		
+		</div>
+
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	
+	</body>
+</html>
