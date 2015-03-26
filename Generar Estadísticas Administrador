@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- This is the name of the page -->
 		<title> Generar Estadísticas Administrador </title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -8,24 +9,44 @@
 		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
 	</head>
 
+	<!-- This is to only permit the characters that we allow to input to the system -->
+	<script type="text/JavaScript">
+		function valid(f) {
+		!(/^[A-z;0-9; ;.]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.]/ig,''):null;
+		} 
+	</script>
+
 	<body>
+		<!-- Static navbar -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
+		    
 		    <div class="navbar-header">
-		     <a class="navbar-brand">ANDINO Legal Solution</a>
+		    <!-- This part of the code is for the name of the application -->
+		    <a class="navbar-brand">ANDINO Legal Solution</a>
+			<!-- Brand and toggle get grouped for better mobile display -->
+		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+            </button>
 		    </div>
 
 		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <form class="navbar-form navbar-right	" role="logout">
+		      	<!-- This button is to change the language of the page -->
+		      	<button class="btn btn-default">English</button>
+		      	<!-- This button is to logout of the system -->
 		        <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
 		      </form>
 		    </div>
-		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    
 		  </div><!-- /.container-fluid -->
 		</nav>
 		
 		<div class="container">
+			<!-- This is the name in the header of the page -->
 			<h1> Generar Estadísticas </h1>
 			
 			<br></br>
@@ -34,27 +55,40 @@
 				<div class="form-group"> 
 					<label for="Type_Document" class="col-sm-1 control-label">Por:</label> 
 					<div class="col-sm-5">
+						<!-- This dropdown is to select the type of document for which the user wants the statistics -->
 						<select class="form-control" id="Type_Document">
 						<option> Tipo de Documento </option>
 						<option> Demanda </option>
 						<option> Moción </option>
 						<option> Subpeona </option>
 						<option> Requerimientos </option>
+						<option> Contrato </option>
 					</select>
 					</div>
 				</div> 
 
 				<div class="form-group"> 
+					<label for="cuantía" class="col-sm-1 control-label">Subcategría:</label> 
+					<div class="col-sm-5">
+						<!-- This input text box is to write the subcategory or type of service of the document that the user wants the statistics -->
+						<input type="text" class="form-control" id="cuantía" placeholder="Subcategría o Tipo de Servicio" onkeyup="valid(this)" onblur="valid(this)"> 
+					</div> 
+				</div>
+
+				<div class="form-group"> 
 					<label for="cuantía" class="col-sm-1 control-label">Cuantía:</label> 
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="cuantía" placeholder="Cantidad"> 
+						<!-- This input text box is to write the amount of the contracts that the user wants the statistics -->
+						<input type="text" class="form-control" id="cuantía" placeholder="Cantidad" onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div> 
 				
 				<div class="form-group"> 
+
 					<label for="Date_inicial" class="col-sm-1 control-label">Fecha de inicio:</label> 
 					<p></p>
 					<div class="col-sm-5">
+						<!-- This input text box is to select the starting date that the user wants the statistics -->
 						<input type="Date" class="form-control" id="Date_inicial"> 
 					</div> 
 				</div> 
@@ -63,6 +97,7 @@
 					<label for="Date_deadline" class="col-sm-1 control-label">Fecha de Vencimineto:</label>
 					<p></p>
 					<div class="col-sm-5"> 
+						<!-- This input text box is to select the deadline date that the user wants the statistics -->
 						<input type="Date" class="form-control" id="Date_deadline"> 
 					</div> 
 				</div>
@@ -70,7 +105,9 @@
 			<p></p>
 			
 			<div class="row">
+				<!-- This button is for canceling everithing and returning to the administrator page -->
 				<a class="btn btn-primary pull-right" href="PaginaDeAdministrador.html">Cancelar</a>
+				<!-- This button is for generating the statistics -->
 				<a class="btn btn-primary pull-right" style="margin-right: 4px" href="#.html">Generar</a>
 			</div>
 		</div>
