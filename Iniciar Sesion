@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- This is the name of the page -->
 		<title> Iniciar Sesión </title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -8,17 +9,20 @@
 		<meta charset="UTF-8">
 	</head>
 
+	
 	<body>
-		<!-- This is the navbar of the system -->
+		<!-- Static navbar -->
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
+					<!-- This part of the code is for the name of the application -->
 					<a class="navbar-brand">ANDINO Legal Solution</a>
 				</div>
 			</div>
 		</nav>
 
 		<div class="container">
+			<!-- This is the name in the header of the page -->
 			<h1> Iniciar Sesión </h1>
 			<br></br>
 			<!-- Field to enter the username and the password -->
@@ -26,14 +30,14 @@
 				<!-- Here is the space for the username of the administrator, secretary or attorney -->
 				<div class="row">
 					<label for="exampleInputUsername">Username:</label>
-					<input type="text" class="form-control" id="exampleInputName2" placeholder="Username">
+					<input type="text" class="form-control" id="exampleInputName2" minlength="8" maxlength="15" placeholder="Username">
 				</div>
 
 				<p></p>
 				<!-- Here is the space for the password of the user -->
 				<div class="row">
 					<label for="exampleInputPassword">Password:</label>
-					<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Password">
+					<input type="password" class="form-control" id="exampleInputEmail2" minlength="8" maxlength="12" placeholder="Password">
 				</div>
 
 				<p></p>
@@ -47,8 +51,7 @@
 					<!-- Button to start the session -->
 					<div class="row">
 						<button type="button" class="btn btn-primary col-md-offset-1">Iniciar</button>	
-<!--				Why a cancel button here???
-						<button type="button" class="btn btn-primary ">Cancelar</button> -->
+
 					</div>
 				</div>
 
