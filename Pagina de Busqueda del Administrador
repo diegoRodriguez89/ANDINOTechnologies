@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <!-- This is the name of the page -->
 		<title> Pagina de Casos Administrator</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -8,28 +9,42 @@
         <link rel="stylesheet" href="css/ANDINOstyleSheet.css">
 
 	</head>
-	<body>
 
+    <body>
+        <!-- Static navbar -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    
 		    <div class="navbar-header">
-		      <a class="navbar-brand">ANDINO Legal Solution</a>
+                <!-- This part of the code is for the name of the application -->
+		        <a class="navbar-brand">ANDINO Legal Solution</a>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                </button>
 		    </div>
 
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <form class="navbar-form navbar-right " role="logout">
+                <!-- This button is to change the language of the page -->
+                <button class="btn btn-default">English</button>
+                <!-- This button is to logout of the system -->
                 <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
               </form>
             </div>
 		  </div>
 		</nav>
 			<div class="container">	
+                <!-- This is the name in the header of the page -->
 				<h1>Página de Casos</h1>
 
 
 			<br></br>
-			<table>
+			<!-- This is the table to present all the cases that the user search or the case that the user search -->
+            <table>
 
     		<thead>
 
@@ -53,6 +68,7 @@
             <td>Subpeona</td>
             <td>Procesado</td>
             <td></td>
+            <!-- This button is to view the case and will send the user to that case page -->
             <td><p><p><a class="btn btn-primary" href="ViewCaseAdministrator.html">View</a></p></p></td>
         </tr>
         <tr>
@@ -62,6 +78,7 @@
             <td>Demanda</td>
             <td>No Procesado</td>
             <td></td>
+            <!-- This button is to view the case and will send the user to that case page -->
             <td><p><p><a class="btn btn-primary" href="ViewCaseAdministrator.html">View</a></p></p></td>
         </tr>
         <tr>
@@ -71,12 +88,13 @@
             <td>Moción</td>
             <td>No Procesado</td>
             <td></td>
+            <!-- This button is to view the case and will send the user to that case page -->
             <td><p><p><a class="btn btn-primary" href="ViewCaseAdministrator.html">View</a></p></p></td>
             </tr>
     	</tbody>
 		</table>
         <br></br>
-
+        <!-- This button is for canceling everithing and returns to the administrators page -->
 		<a class="btn btn-primary pull-right" href="PaginaDeAdministrador.html">Cancelar</a>
 		</div>	
 		
