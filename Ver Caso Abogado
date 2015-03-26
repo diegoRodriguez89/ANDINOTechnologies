@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- This is the name of the page -->
 		<title> Ver Caso Abogado</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -9,17 +10,38 @@
 		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
 
 	</head>
-	<body>
 
+	<!-- This is to only permit the characters that we allow to input to the system -->
+	<script type="text/JavaScript">
+		function valid(f) {
+		!(/^[A-z;0-9; ;.;,;#;&]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.;,;#;&]/ig,''):null;
+		} 
+	</script>
+
+	<body>
+		<!-- Static navbar -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    
 		    <div class="navbar-header">
+		    <!-- This part of the code is for the name of the application -->
 		     <a class="navbar-brand">ANDINO Legal Solution</a>
+
+		     <!-- Brand and toggle get grouped for better mobile display -->
+		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+            </button>
+
 		    </div>
 
 		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <form class="navbar-form navbar-right	" role="logout">
+		      	<!-- This button is to change the language of the page -->
+		      	<button class="btn btn-default">English</button>
+		      	<!-- This button is to logout of the system -->
 		        <a class="btn btn-default" href="Iniciar Sesion.html">Salir</a>
 		      </form>
 		    </div>
@@ -28,42 +50,62 @@
 		</nav>
 		
 		<div class="container">
+			<!-- This is the name in the header of the page -->
 			<h1> Caso </h1>
 			
 			<br></br>
 			
-				<div class="row">
+			<div class="row">
+				<!-- This input is to select the document date -->
 				<label class="col-md-2"> Fecha Comunicado<input type="date" class="form-control"></label>
+				<!-- This input is to select the date that the document was received -->
 				<label class="col-md-2 col-md-offset-1">Fecha Recibido<input type="date" class="form-control"></label>
+				<!-- This input is to select the document deadline date -->
 				<label class="col-md-2 col-md-offset-1">Fecha Vencimiento<input type="date" class="form-control"></label>
 	
 			</div>
 			<p></p>
 			<div class="row">
-				<div class="col-md-2"><input type="text" class="form-control" placeholder="# Caso" disabled></div>
-				<div class="col-md-4 col-md-offset-1"><input type="text" class="form-control" placeholder="Apelante"></div>
+				<!-- This input box is to insert the case number -->
+				<div class="col-md-2"><input type="text" class="form-control" placeholder="# Caso" onkeyup="valid(this)" onblur="valid(this)"></div>
+				<!-- This input box is to insert the name of the appellant -->
+				<div class="col-md-5 col-md-offset-1"><input type="text" class="form-control" placeholder="Apelante" onkeyup="valid(this)" onblur="valid(this)"></div>
 			</div>
 			
 			<p></p>
 			<div class="row">
 				<div class="col-md-3">
+					<!-- This dropdown is to select the type of document -->
 					<select class="form-control">
 						<option> Tipo de Documento </option>
 						<option> Demanda </option>
 						<option> Moción </option>
 						<option> Subpeona </option>
 						<option> Requerimientos </option>
+						<option> Otros </option>
 					</select>
 				</div>
 
-				<div class="col-md-2"><input type="text" class="form-control" placeholder="Destinatario"></div>
-				<div class="col-md-2 "><input type="text" class="form-control" placeholder="Region"></div>
+				<!-- This input box is for inserting the subcategory of the document -->
+				<div class="col-md-5"><input type="text" class="form-control" placeholder="Subcategoría" onkeyup="valid(this)" onblur="valid(this)"></div>
+
+
+			</div>
+
+			<p></p>
+			<div class="row">
+				<!-- This input box is to insert name of the addressee -->
+				<div class="col-md-3 "><input type="text" class="form-control" placeholder="Destinatario" onkeyup="valid(this)" onblur="valid(this)"></div>
+				<!-- This input box is to insert name of the addressee region -->
+				<div class="col-md-4 "><input type="text" class="form-control" placeholder="Region" onkeyup="valid(this)" onblur="valid(this)"></div>
 				
 			</div>
 			<p></p>
 			<div class="row">
-				<div class="col-md-2 col-md-offset-3"><input type="text" class="form-control" placeholder="Remitente"></div>
+				<!-- This input box is to insert name of the lawyer that sends the document -->
+				<div class="col-md-3"><input type="text" class="form-control" placeholder="Remitente" onkeyup="valid(this)" onblur="valid(this)"></div>
 				<div class="col-md-4">
+					<!-- This dropdown is to select the name of the senders office -->
 					<select class="form-control">
 						<option> Departamento </option>
 						<option> Comisión Apelativa del Servicio Publico(CASP) </option>
@@ -75,17 +117,21 @@
 						<option> Requerimientos </option>
 					</select>
 				</div>
+				<!-- This input box is to insert other departments -->
+				<div class="col-md-4"><input type="text" class="form-control" placeholder="Otros Departamentos" onkeyup="valid(this)" onblur="valid(this)"></div>
 				
 			</div>
 				
 			<p></p>
+			<!-- This input box is to write some issue of the contract -->
 			<textarea class="form-control .input-lg" rows="5" placeholder="Asunto"></textarea>
 			
 			<p></p>
-			
+			<!-- This input box is to write some comments of the contract -->
 			<textarea class="form-control .input-lg" rows="5" placeholder="Comentario"></textarea>
 			<p></p>
 
+			<!-- This check box is to know if the case is process or not process -->
 			<label for="name">Estado:</label>
 		<div> 
 			<label class="checkbox-inline"> 
@@ -99,13 +145,17 @@
 		<br></br>
 		<div class="footer">
 		<div class="row">
+			<!-- This button is for canceling everithing and returns to the lawyer page -->
 			<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PerfildeAbogado.html">Cancelar</a>
+			<!-- This button is for adding a case to the system after editing and returns to the lawyer page -->
 			<a class="btn btn-primary pull-right" style="margin-right: 4px" href="PerfildeAbogado.html">Someter</a>
+			<!-- This button is for printing a case -->
 			<a class="btn btn-primary pull-right" style="margin-right: 4px" href="javascript:window.print()"> Print </a>
+			<!-- This button is for editing the case -->
 			<button type="button" class="btn btn-primary pull-right" style="margin-right: 4px">Editar</button>
 		</div>
 		</div>
-		
+
 		</div>
 
 		<script src="js/jquery-1.11.2.min.js"></script>
