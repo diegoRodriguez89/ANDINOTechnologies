@@ -3,7 +3,7 @@
   $lang = array();
 
   //INDEX - INICIAR_SESION
-  $lang['language']     = 'Language';
+  $lang['language']     = 'Idioma';
   $lang['signIn']       = 'Sign In'; //Iniciar Sesión
   $lang['userName']     = 'Username';
   $lang['userPassword'] = 'Password';
@@ -27,6 +27,7 @@
 
   
   //EMPLOYEE LIST VIEW
+  $lang['eListHeader'] = 'Employee List'; //Lista de Empleados
   $lang['eAdd'] = 'Add Employee'; //Añadir Empleado
   $lang['eName'] = 'Name';
   $lang['eLastNames'] = 'Last Names';
@@ -48,7 +49,7 @@
   $lang['eType_reservist']          = 'Reservist'; //Reservista
   $lang['eType_colonel']            = 'Colonel'; //Coronel
   $lang['eType_lieutenant_colonel'] = 'Lieutenant Colonel'; //Teniente Coronel
-  $lang['eType_commander']          =   'Commander'; //Commander
+  $lang['eType_commander']          =  'Commander'; //Commander
   $lang['eType_inspector']          = 'Inspector'; //Inspector
   $lang['eType_colonel']            = 'Colonel'; //Coronel
   $lang['eType_captain']            = 'Captain'; //Capitán
@@ -58,7 +59,7 @@
   $lang['eType_cadet']              = 'Cadet'; //Cadetee
   $lang['eType_adm_assistant']      = 'Adminstrative Assistant'; //Asistente Administrativa
   $lang['eType_adm_system']         = 'System Administrator I'; //System Administrator I
-  $lang['eType_adm_office_techs']   = 'Office Systems Technicals III'; //Técnicas de Sistemas de Oficina III
+  $lang['eType_adm_office_techs']   = 'Office Systems Technician III'; //Técnicas de Sistemas de Oficina III
   $lang['eTemporaryUser']           = 'Temporary Username';
   $lang['eTemporaryPass']           = 'Temporary Password';
   $lang['eSubmit']                  = 'Add'; 
@@ -99,11 +100,14 @@
   $lang['case_comment']  = 'Comments'; //Comentario
   $lang['case_subject']  = 'Subject'; //Asunto
   $lang['case_referred'] = 'Reffered To'; //Referido a
+  $lang['doc_print']     = 'Print'; //Imprimir
+  $lang['doc_view']      = 'Document'; //Documento
 
   //ADD_CONTRACT 
-  $lang['contract_num'] = 'Contract #'; 
-  $lang['contType']     = 'Contract Type'; 
-  $lang['serviceType']  = 'Service Type';
+  $lang['contractHeader'] = 'Contract'; //Contrato
+  $lang['contract_num']   = 'Contract #'; 
+  $lang['contType']       = 'Contract Type'; 
+  $lang['serviceType']    = 'Service Type';
 
 
 
@@ -120,7 +124,12 @@
   //LAWYER PROFILE
   $lang['l_profile']    = 'Lawyer Profile'; //Perfil del Abogado
   $lang['l_name']       = 'Lawyer Name'; //Lic. Nombre
+  $lang['l_docs']       = 'My Documents'; //Mis Documentos
+  $lang['allDocs']      = 'All Documents'; //Todos los Documentos
 
-  
+  //SEARCH_PAGE
+  $lang['searchCaseHeader']  = 'Case Search'; //Búsqueda de Casos
+  $lang['search_date']       = 'Date'; //Fecha
+  $lang['apellant_name']     = 'Apellant Name'; //Nombre del Apelante
 
 ?>
