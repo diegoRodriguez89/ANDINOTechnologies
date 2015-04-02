@@ -1,4 +1,5 @@
 body {
+
     background-color: #EFFEDE ;
 }
 
@@ -17,18 +18,29 @@ h1 {
     text-align: left;
 }
 table {
-    width: 100%;
-}
-
-th {
-    height: 50px;
-}
-
-table, th, td {
+    width: 100%; 
+    text-align: left;
     border: 2px solid black;
     font-size: 18px;
-
 }
+
+td {
+    padding-left: 10px;
+    border: 2px solid black;
+    height: 30px;
+    font-size: 18px;
+}
+
+.invalid-blink {
+    background-color: red;
+}
+
+th { 
+  height: 50px;
+  border: 2px solid black;
+  text-align: center;
+}
+
 p {
     font-family: "Arial";
     text-align: center;
@@ -42,7 +54,14 @@ a{
 }
 
 @media print{ 
-no.print, .footer{
+  no.print, .footer{
   display: none;
   }
 }
+
+#table-scroll {
+  height:450px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
