@@ -1,10 +1,11 @@
 <?php
+	//This is to use the $_SESSION variables. This variables are to pass the values from page to page.
   session_start();
-
+  //to includes the library to change the language of the page
 	include_once 'common.php';
 	include 'library.php';
-
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,29 +15,28 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
+		<!-- This is to only permit the characters that we allow to input to the system -->
+		<script type="text/JavaScript">
+			function valid(f) {
+			!(/^[A-z;0-9; ;.;,;#;&;-]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.;,;#;&;-]/ig,''):null;
+			} 
+		</script>
 	</head>
 
-	<!-- This is to only permit the characters that we allow to input to the system -->
-	<script type="text/JavaScript">
-		function valid(f) {
-		!(/^[A-z;0-9; ;.;,;#;&]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.;,;#;&]/ig,''):null;
-		} 
-	</script>
-	
 	<body>
-		<!-- Static navbar -->
 		<?php 
+			/*
+				This function displays the information in the navigation bar. It includes the system's header, the
+				language selection dropdown and logout buttons.
+			*/
 			navbarEmployeeList($lang['language'],$lang['logout']);
 		?>
-		
+
 		<div class="container">
 			<!-- This is the name in the header of the page -->
-			<h1>
-			<?php print "$lang[add_case]"; ?> 
-			</h1>
+			<h1><?php print "$lang[add_case]"; ?></h1>
 
 			<br></br>
-			
 			<form id="form_anadirCaso" action="anadirCaso.php" method="post">
 				<div class="row">
 					<!-- This input is to select the document date -->
@@ -58,12 +58,12 @@
 						<input type="text" class="form-control" placeholder="<?php echo $lang['case_apellant']; ?>" onkeyup="valid(this)" onblur="valid(this)" id="caseAppellant" name="caseAppellant" required>
 					</div>
 				</div>
-				
+
 				<p></p>
 				<div class="row">
-					<div class="col-md-3" id="documentType"> 
+					<div class="col-md-3"> 
 						<!-- This dropdown is to select the type of document -->
-						<select class="form-control" name="documentType" required>
+						<select class="form-control" id="documentType" name="documentType" required>
 							<option value=""> <?php echo $lang['docType']; ?> </option>
 							<option value="Lawsuit"> <?php echo $lang['doc_lawsuit']; ?>  </option>
 							<option value="Motion"> <?php echo $lang['doc_motion']; ?>  </option>
@@ -77,19 +77,46 @@
 					<div class="col-md-5">
 						<input type="text" class="form-control" placeholder="<?php echo $lang['genSubcategory']; ?>" onkeyup="valid(this)" onblur="valid(this)" name="documentSubcategory" id="documentSubcategory">
 					</div>
+
+					<!-- Amount in lawsuit -->
+					<div class="col-md-2">
+						<input type="text" class="form-control" placeholder="Cantidad">
+					</div>
 				</div>
 
 				<p></p>
 				<div class="row">
+					<!-- This input box is to insert name of the addressee region -->
+					<div class="col-md-3 ">
+<!--						<input type="text" class="form-control" placeholder="<?php// echo $lang['case_region']; ?>" onkeyup="valid(this)" onblur="valid(this)" name="caseRegion" id="caseRegion">-->
+						<select class="form-control" name="caseRegion" id="caseRegion" onchange="myFunction()" required>
+							<option value="">Seleccione la region</option>
+							<option value="Aibonito">Aibonito</option>
+							<option value="Aguadilla">Aguadilla</option>
+							<option value="Arecibo">Arecibo</option>
+							<option value="Bayamon">Bayamón</option>
+							<option value="Caguas">Caguas</option>
+							<option value="Carolina">Carolina</option>
+							<option value="Fajardo">Fajardo</option>
+							<option value="Guayama">Guayama</option>
+							<option value="Hato Rey">Hato Rey</option>
+							<option value="Humacao">Humacao</option>
+							<option value="Mayaguez">Mayagüez</option>
+							<option value="Ponce">Ponce</option>
+							<option value="San Juan">San Juan</option>
+							<option value="Utuado">Utuado</option>
+						</select>
+					</div>
+
 					<!-- This input box is to insert name of the addressee -->
-					<div class="col-md-3" id="caseReceiver">
+					<div class="col-md-4" id="caseReceiver">
 						<!--<input type="text" class="form-control" placeholder="Destinatario" onkeyup="valid(this)" onblur="valid(this)" id="caseReceiver" name="caseReceiver">-->
 						<?php session_start();
 							$serverName = "127.0.0.1";
 							$connectionInfo = array("Database"=>"PoliceTest", "UID"=>"sa", "PWD"=>"A06a30adr5d");
 									  			
 							$conn = sqlsrv_connect($serverName, $connectionInfo);
-							$sql = "SELECT Username, Name, MiddleName, LastName, MaidenName, Office FROM Employee WHERE Job = 'attorney'";
+							$sql = "SELECT Username, Name, MiddleName, LastName, MaidenName FROM Employee WHERE Job = 'attorney'";
 							$stmt = sqlsrv_query($conn, $sql);
 							if ($stmt === false) {
 							  die(print_r( sqlsrv_errors(), true));
@@ -101,11 +128,6 @@
 							} 
 							echo "</select>";
 						?>
-					</div>
-
-					<!-- This input box is to insert name of the addressee region -->
-					<div class="col-md-4 ">
-						<input type="text" class="form-control" placeholder="<?php echo $lang['case_region']; ?>" onkeyup="valid(this)" onblur="valid(this)" name="caseRegion" id="caseRegion">
 					</div>
 				</div>
 
@@ -139,7 +161,6 @@
 				<textarea class="form-control .input-lg" rows="5" placeholder="<?php echo $lang['case_comment']; ?>" name="caseComment" id="caseComment"></textarea>
 				
 				<br></br>
-				
 				<div class="footer">
 					<div class="row">
 						<!-- This button is for canceling everithing and returns to the secretary page -->
@@ -157,6 +178,12 @@
 
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+			function myFunction() {
+			  var mylist = document.getElementById("caseRegion");
+			  //document.getElementById("demo").value = mylist.options[mylist.selectedIndex].text;
+			  <?php $city ='document.getElementById("demo").value = mylist.options[mylist.selectedIndex].text;';?>
+			}
 		</script>
 	</body>
 </html>
