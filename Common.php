@@ -4,7 +4,7 @@ session_start();
 if(isSet($_GET['lang'])){
 	$lang = $_GET['lang'];
  
-// register the session and set the cookie
+//Register the session and set the cookie
 	$_SESSION['lang'] = $lang; 
 	setcookie('lang', $lang, time() + (3600 * 24 * 30));
 	}
@@ -20,7 +20,8 @@ if(isSet($_GET['lang'])){
 	else{
 		$lang = 'en';
 	}
- 
+
+//Selects which file is to be used. English language is set as the default language
 switch ($lang) {
   case 'en':
   $lang_file = 'lang.en.php';
@@ -34,6 +35,6 @@ switch ($lang) {
   $lang_file = 'lang.en.php';
  
 }
- 
+ //Includes the files in the path
 include_once 'languages/'.$lang_file;
 ?>
