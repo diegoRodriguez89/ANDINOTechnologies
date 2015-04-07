@@ -1,5 +1,5 @@
 <?php
-
+	//Includes the libraries to change the language of the page (english/spanish) and the navigational bar
 	include_once 'common.php';
 	include 'library.php';
 	?>
