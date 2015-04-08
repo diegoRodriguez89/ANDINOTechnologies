@@ -53,7 +53,7 @@
 					print $lang['userPassword']; 
 					?>:
 					</label>
-					<input type="password" class="form-control" id="userPassword" minlength="8" maxlength="12"  name="userPassword" placeholder="<?php print $lang['userPassword'];	?>" required>
+					<input type="password" class="form-control" id="userPassword" minlength="8" maxlength="15"  name="userPassword" placeholder="<?php print $lang['userPassword'];	?>" required>
 				</div>
 
 				<p></p>
