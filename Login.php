@@ -21,6 +21,8 @@
   
   $userName = mysql_real_escape_string($userName);
   $userPassword = mysql_real_escape_string($userPassword);
+
+  $cryptUserPass = md5($userPassword);
   
   //Verifies if the connection with the server is successful
   if(!$conn) {
@@ -28,7 +30,7 @@
   }
 
   
-  $sql = "SELECT Username, Name, MiddleName, LastName, MaidenName, Job FROM Employee WHERE Username = '$userName' and UserPassword = '$userPassword'";
+  $sql = "SELECT Username, Name, MiddleName, LastName, MaidenName, Job FROM Employee WHERE Username = '$userName' and UserPassword = '$cryptUserPass'";
   $stmt = sqlsrv_query($conn, $sql);
   $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
   $_SESSION['username'] = $row['Username'];
