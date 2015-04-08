@@ -16,6 +16,13 @@
   	die( print_r( sqlsrv_errors(), true));
 	}
 
+	if($_SESSION[job] == 'admin' || $_SESSION[job] == 'attorney' || $_SESSION[job] == 'secretary'){
+		echo "OK";
+	}
+	else{
+		die("You are not allow in this page. :P");
+	}
+
 	/*
 		If the employee choose the option to see a document
 		$_POST['view'] has the value of the document's number
