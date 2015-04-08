@@ -2,6 +2,7 @@
 	session_start();
 	session_unset();
 
+    //Includes the libraries to change the language of the page (english/spanish) and the navigational bar
 	include_once 'common.php';
 	include 'library.php';
 ?>
@@ -17,8 +18,12 @@
 	</head>
 
 	<body>
-		<!-- This is the navbar of the system -->
+
 		<?php 
+		 /*
+        This function displays the information in the navigation bar. It includes the system's header and the
+        language selection dropdown buttons.
+        */
 			navbar($lang['language']);
 		?>
 
