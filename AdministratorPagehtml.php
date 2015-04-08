@@ -16,6 +16,9 @@
 	  die( print_r( sqlsrv_errors(), true));
 	}
 
+	if($_SESSION[job] <> 'admin'){
+		die("You are not allow in this page. :P");
+	}
 	/*
 		If the administrator chooses the option to view a document
 		$_POST['view'] has the value of the document's number
