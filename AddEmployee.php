@@ -53,12 +53,13 @@
   $maidenName = mysql_real_escape_string($maidenName);
   $employeeJob = mysql_real_escape_string($employeeJob);
 
+  $cryptPassword = md5($Password);
  /* SQL
     $sql = query to insert the information of the employee in the database with the variable above
     $stmt = sqlsrv_query() = prepares and executes the query
     $row = sqlsrv_fetch_array() = returns the row as an array
   */
-  $sql = "INSERT INTO Employee VALUES('$Username', '$Password', '$Name', '$Initial', '$lastName', '$maidenName', 'Hato Rey', '$employeeJob')";
+  $sql = "INSERT INTO Employee VALUES('$Username', '$cryptPassword', '$Name', '$Initial', '$lastName', '$maidenName', 'Hato Rey', '$employeeJob')";
   $stmt = sqlsrv_query($conn, $sql);
   $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
