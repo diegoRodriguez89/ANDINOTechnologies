@@ -36,7 +36,10 @@
   $newUsername = mysql_real_escape_string($newUsername);
   $newPassword = mysql_real_escape_string($newPassword);
   $oldUsername = mysql_real_escape_string($oldUsername);
-  $sql = "UPDATE Employee SET Username = '$newUsername', Password = '$newPassword' WHERE Username = '$oldUsername'";
+
+  $newCrypt = md5($newPassword);
+  $oldCrypt = md5($oldPassword);
+  $sql = "UPDATE Employee SET Username = '$newUsername', Password = '$newCrypt' WHERE Username = '$oldUsername' AND UserPassword = 'oldCrypt'";
   $stmt = sqlsrv_query($conn, $sql);
   $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
