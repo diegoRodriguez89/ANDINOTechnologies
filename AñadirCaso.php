@@ -46,7 +46,7 @@
   $department = $_POST['department'];
   $documentSubcategory = $_POST['documentSubcategory'];
   $caseCopy = $_POST['caseCopy'];
-
+  $quantity = $_POST['quantity'];
 
   // The function mysql_real_escape_string will clear the special characters from the variable.
   $caseNumber = mysql_real_escape_string($caseNumber);
@@ -60,6 +60,7 @@
   $documentSubcategory = mysql_real_escape_string($documentSubcategory);
   $caseSubject = mysql_real_escape_string($caseSubject);
   $caseCopy = mysql_real_escape_string($caseCopy);
+  $quantity = mysql_real_escape_string($quantity);
 
   //hard cody
   $tar_dir = "copies\\$caseCopy";
@@ -126,7 +127,7 @@
       The function mysql_real_escape_string will clear the special characters from the variable.
     */
     $caseNumber = mysql_real_escape_string($caseNumber);
-    $sql2 = "INSERT INTO Lawsuit VALUES ('$caseNumber', 1000)";
+    $sql2 = "INSERT INTO Lawsuit VALUES ('$caseNumber', '$quantity')";
     $stmt2 = sqlsrv_query($conn, $sql2);
     $row2 = sqlsrv_fetch_array($stmt2, SQLSRV_FETCH_ASSOC);
 
