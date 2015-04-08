@@ -4,6 +4,10 @@
   //to includes the library to change the language of the page
 	include_once 'common.php';
 	include 'library.php';
+
+	if($_SESSION[job] <> 'secretary'){
+		die("You are not allow in this page. :P");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +84,7 @@
 
 					<!-- Amount in lawsuit -->
 					<div class="col-md-2">
-						<input type="text" class="form-control" placeholder="Cantidad">
+						<input type="text" class="form-control" placeholder="Cantidad" name="quantity" id="quantity">
 					</div>
 				</div>
 
@@ -170,7 +174,7 @@
 						<!-- This button is for printing a case -->
 						<a class="btn btn-primary pull-right" style="margin-right: 4px" href="javascript:window.print()"> <?php echo $lang['doc_print']; ?> </a>
 						<!-- This button is for uploading a case document to the system -->
-						<input type="file" name="upload" class="btn btn-primary pull-right" style="margin-right: 4px" name="caseCopy" id="caseCopy">
+						<input type="file" class="btn btn-primary pull-right" style="margin-right: 4px" name="caseCopy" id="caseCopy">
 					</div>
 				</div>
 			</form>
