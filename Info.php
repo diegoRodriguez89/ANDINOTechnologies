@@ -7,5 +7,8 @@
   if( !$conn ) {
     die( print_r( sqlsrv_errors(), true));
   }
+  $target = mysql_real_escape_string($target);
   $sql = "DELETE FROM Employee WHERE Username = '$target'";
   $stmt = sqlsrv_query($conn, $sql);
+
+?>
