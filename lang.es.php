@@ -1,6 +1,12 @@
 <?php   
 
+  /*
+  This file contains the variables and its value in the English language. 
+  */
+
+
    $lang = array();
+
 
   //INDEX - INICIAR_SESION
   $lang['language'] = 'Language';
@@ -13,11 +19,21 @@
   $lang['enter'] = 'Someter'; 
   $lang['logout'] = 'Salir';
 
+    //CHANGE USER - INICIAR_SESION
+  $lang['changeUser']   = 'Cambiar Usuario';
+  $lang['oldUserName']  = 'Nombre de Usuario Anterior';
+  $lang['newUserName']  = 'Nombre de Usuario Nuevo';
+  $lang['oldPassword']  = 'Contraseña Anterior';
+  $lang['newPassword']  = 'Contraseña Nueva';
+  $lang['confirmPassword']  = 'Confirmar Contraseña';
+  $lang['change']       = 'Cambiar';
+
   //ADMIN PAGE
   $lang['adminPage'] = 'Página del Administrador'; 
   $lang['searchButton'] = 'Buscar';
   $lang['eList'] = 'Mostrar Lista de Empleados';
-  $lang['genStats'] = 'Generar Estadísticas'; 
+  $lang['genStats'] = 'Generar Estadísticas';
+  $lang['stats']    = 'Estadísticas'; //Estadísticas
   $lang['case'] = 'Caso';
   $lang['docType'] = 'Tipo de Documento';
   $lang['dDate'] = 'Fecha de Vencimiento'; 
@@ -56,7 +72,7 @@
                           $lang['eType_agent'] = 'Agente'; 
                             $lang['eType_cadet'] = 'Cadete'; 
                               $lang['eType_adm_assistant'] = 'Asistente Administrativa'; 
-                                $lang['eType_adm_system'] = 'Adimistrador de Sistema I'; 
+                                $lang['eType_adm_system'] = 'Administrador de Sistema I'; 
                                   $lang['eType_adm_office_techs'] = 'Técnicas de Sistemas de Oficina III';
   $lang['eTemporaryUser'] = 'Nombre de Usuario Temporero';
   $lang['eTemporaryPass'] = 'Contraseña Temporera';
@@ -129,6 +145,9 @@
   $lang['searchCaseHeader'] = 'Búsqueda de Casos'; 
   $lang['search_date']      = 'Fecha'; 
   $lang['apellant_name']    = 'Nombre del Apelante'; 
+
+  //STATISTICS
+  $lang['documentAmount']   = 'La Cantidad de Documentos es';
  
 
 
