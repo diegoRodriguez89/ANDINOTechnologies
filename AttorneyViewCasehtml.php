@@ -1,7 +1,13 @@
 <?php
-	//to includes the library to change the language of the page
+
+	//Includes the libraries to change the language of the page (english/spanish) and the navigational bar
 	include_once 'common.php';
 	include 'library.php';
+
+	//If the logged in user is not an attorney the user will not be able to continue
+	if($_SESSION[job] <> 'attorney'){
+		die("You are not allowed in this page. :P");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -115,16 +121,34 @@
 				<p></p>
 				<?php
 				  session_start();
-				  $serverName = "127.0.0.1";
+			    /* Server
+  			    $serverName = the name of the server to connect
+  				$connectionInfo = creates an array with the database name, the user id of the database and the user's password of the database
+    			$conn = sqlsrv_connect() = is the function to connect with the server
+  				*/
+				 $serverName = "127.0.0.1";
 		  		$connectionInfo = array("Database"=>"PoliceTest", "UID"=>"sa", "PWD"=>"A06a30adr5d");
-		  			
 		  		$conn = sqlsrv_connect($serverName, $connectionInfo);
-				  $sql = "SELECT Name, MiddleName, LastName, MaidenName, Office FROM Employee, Manage WHERE Username = EmployeeName and DocId = $_SESSION[docID]";
+				  
+	  			/*
+				$sql - query to fetch the information of the employee managing the document from the database.
+	    		$stmt = sqlsrv_query() = prepares and executes the query
+	    		$row = sqlsrv_fetch_array() = returns the row as an array
+	  			*/
+				$sql = "SELECT Name, MiddleName, LastName, MaidenName, Office FROM Employee, Manage WHERE Username = EmployeeName and DocId = $_SESSION[docID]";
 					$stmt = sqlsrv_query($conn, $sql);
 					if ($stmt === false) {
 					  die(print_r( sqlsrv_errors(), true));
 					}
 					$row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+					/* Variables
+					$nombre  - employee name
+					$inicial - employee initial 
+					$apellido - employee last name
+					$segundo - employee maiden name
+					$oficina - office			
+					*/
 					$nombre = $row['Name'];
 					$inicial = $row['MiddleName'];
 					$apellido = $row['LastName'];
@@ -176,7 +200,13 @@
 		  		$connectionInfo = array("Database"=>"PoliceTest", "UID"=>"sa", "PWD"=>"A06a30adr5d");
 		  			
 		  		$conn = sqlsrv_connect($serverName, $connectionInfo);
-				  $sql = "SELECT Notes FROM Comments WHERE DocId = $_SESSION[docID]";
+				  
+	  			/*
+				$sql - query to fetch the comments made to the document from the database.
+	    		$stmt = sqlsrv_query() = prepares and executes the query
+	    		$row = sqlsrv_fetch_array() = returns the row as an array
+	  			*/
+				$sql = "SELECT Notes FROM Comments WHERE DocId = $_SESSION[docID]";
 					$stmt = sqlsrv_query($conn, $sql);
 					if ($stmt === false) {
 					  die(print_r( sqlsrv_errors(), true));
@@ -212,11 +242,11 @@
 						<a class="btn btn-primary pull-right" style="margin-right: 4px" href="javascript:window.print()"> <?php echo $lang['doc_print']; ?> </a>
 						<!-- This button is for see the document of the case -->
 						<?php
-							if(is_null($copia)){
-								echo "<a class='btn btn-primary pull-right' style='margin-right: 4px' href='<?php echo $copia ?>' target='_blank' disabled>$lang[doc_view]</a>";
+							if($copia <> ""){
+								echo "<a class='btn btn-primary pull-right' style='margin-right: 4px' href='$copia' target='_blank'>$lang[doc_view]</a>";
 							}
 							 else{
-							 	echo "<a class='btn btn-primary pull-right' style='margin-right: 4px' href='<?php echo $copia ?>' target='_blank'>$lang[doc_view]</a>";
+							 	echo "<a class='btn btn-primary pull-right' style='margin-right: 4px' href='$copia' target='_blank' disabled>$lang[doc_view]</a>";
 							 }
 						?>
 					</div>
