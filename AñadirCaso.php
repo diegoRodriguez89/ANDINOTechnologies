@@ -47,12 +47,8 @@
   $documentSubcategory = $_POST['documentSubcategory'];
   $caseCopy = $_POST['caseCopy'];
 
-  /* SQL
-    $sql = query to insert the information of the employee in the database with the variable above
-    $stmt = sqlsrv_query() = prepares and executes the query
-    $row = sqlsrv_fetch_array() = returns the row as an array
-    The function mysql_real_escape_string will clear the special characters from the variable.
-  */
+
+  // The function mysql_real_escape_string will clear the special characters from the variable.
   $caseNumber = mysql_real_escape_string($caseNumber);
   $dateReceived = mysql_real_escape_string($dateReceived);
   $dateDocument = mysql_real_escape_string($dateDocument);
@@ -64,7 +60,16 @@
   $documentSubcategory = mysql_real_escape_string($documentSubcategory);
   $caseSubject = mysql_real_escape_string($caseSubject);
   $caseCopy = mysql_real_escape_string($caseCopy);
-  $sql = "INSERT INTO Documents VALUES('$caseNumber','$dateReceived', '$dateDocument', '$dateDue', '$caseAppellant', '$caseSender', '$department', '$documentType', '$documentSubcategory', '$caseSubject', '$caseCopy', 'No')";
+
+  //hard cody
+  $tar_dir = "copies\\$caseCopy";
+
+  /* SQL
+    $sql = query to insert the information of the employee in the database with the variable above
+    $stmt = sqlsrv_query() = prepares and executes the query
+    $row = sqlsrv_fetch_array() = returns the row as an array
+  */
+  $sql = "INSERT INTO Documents VALUES('$caseNumber','$dateReceived', '$dateDocument', '$dateDue', '$caseAppellant', '$caseSender', '$department', '$documentType', '$documentSubcategory', '$caseSubject', '$tar_dir', 'No')";
   $stmt = sqlsrv_query($conn, $sql);
   $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
