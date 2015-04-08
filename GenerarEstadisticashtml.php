@@ -1,6 +1,7 @@
 <?php
 	session_start();
 
+    //Includes the libraries to change the language of the page (english/spanish) and the navigational bar
 	include_once 'common.php';
 	include 'library.php';
 ?>
@@ -10,23 +11,29 @@
 <html>
 	<head>
 		<!-- This is the name of the page -->
-		<title> Generar Estadísticas Abogado</title>
+		<title> Generar Estadísticas </title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="css/ANDINOstyleSheet.css">
+
+
 	</head>
 
 	<!-- This is to only permit the characters that we allow to input to the system -->
 	<script type="text/JavaScript">
 		function valid(f) {
-		!(/^[A-z;0-9; ;.]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.]/ig,''):null;
+		!(/^[A-z;0-9; ;.;-]*$/i).test(f.value)?f.value = f.value.replace(/[^A-z;0-9; ;.;-]/ig,''):null;
 		} 
 	</script>
 	
 	<body>
-		<!-- Static navbar -->
+
 		<?php 
+		/*
+		This function displays the information in the navigation bar. It includes the system's header, the
+		language selection dropdown and logout buttons.
+		*/
 			navbarEmployeeList($lang['language'],$lang['logout']);
 		?>
 
@@ -39,17 +46,17 @@
 			
 			<br></br>
 
-			<form class="form-horizontal" role="form" id="generateStatistics" action="generarEstadisticas.php" method = "post">
+			<form class="form-horizontal" role="form" id="generateOutputStatisticshtml" action="generarOutputEstadisticashtml.php" method = "post">
 				<div class="form-group" > 
 					<label for="documentType" class="col-sm-1 control-label"><?php echo $lang['genBy']; ?>:</label> 
 					<div class="col-sm-5" id="document_type">
 						<!-- This dropdown is to select the type of document for which the user wants the statistics -->
-						<select class="form-control" name="documentType">
+						<select class="form-control" name="documentType" required>
 							<option> <?php echo $lang['docType']; ?></option>
 							<option value="Lawsuit"> <?php echo $lang['doc_lawsuit']; ?> </option>
-							<option value="Others"> <?php echo $lang['doc_motion']; ?> </option>
-							<option value="Others"> <?php echo $lang['doc_subpoena']; ?> </option>
-							<option value="Others"> <?php echo $lang['doc_requirements']; ?> </option>
+							<option value="Motion"> <?php echo $lang['doc_motion']; ?> </option>
+							<option value="Subpeona"> <?php echo $lang['doc_subpoena']; ?> </option>
+							<option value="Requirements"> <?php echo $lang['doc_requirements']; ?> </option>
 							<option value="Others"> <?php echo $lang['doc_others']; ?> </option>
 						</select>
 					</div>
@@ -58,7 +65,7 @@
 				<div class="form-group" > 
 					<label for="documentSubcategory" class="col-sm-1 control-label"><?php echo $lang['genSubcategory']; ?>:</label> 
 					<div class="col-sm-5">
-						<!-- This input text box is to write the subcategory or type of service of the document that the user wants the statistics -->
+						  <!-- This input text box is to write the document subcategory or type of service for which the the user want the statistics -->
 						<input type="text" class="form-control" name = "documentSubcategory" id="documentSubcategory" placeholder="<?php echo $lang['genSubcategory']; ?>" onkeyup="valid(this)" onblur="valid(this)"> 
 					</div> 
 				</div>
@@ -76,7 +83,7 @@
 					<p></p>
 					<div class="col-sm-5">
 						<!-- This input text box is to select the starting date that the user wants the statistics -->
-						<input type="Date" class="form-control" name = "initialDate" id="initialDate"> 
+						<input type="Date" class="form-control" name = "initialDate" id="initialDate" required> 
 					</div> 
 				</div> 
 				
@@ -85,23 +92,23 @@
 					<p></p>
 					<div class="col-sm-5">
 						<!-- This input text box is to select the deadline date that the user wants the statistics --> 
-						<input type="Date" class="form-control" name = "endDate" id="endDate"> 
+						<input type="Date" class="form-control" name = "endDate" id="endDate" required> 
 					</div> 
 				</div>
 			</form>
 			
-			<p></p>
+			<br></br>
 			
 			<div class="row">
-				<!-- This button is for canceling everithing and returning to the lawyer page -->
-				<a class="btn btn-primary pull-right" href="caseSearch.php"><?php echo $lang['eCancel']; ?></a>
 				<!-- This button is for generating the statistics -->
-				<button class="btn btn-primary pull-right" style="margin-right: 4px" type = "submit" form = "generateStatistics"><?php echo $lang['generate']; ?></button>
+				<button class="btn btn-primary col-md-offset-4" type = "submit" form ="generateOutputStatisticshtml"><?php echo $lang['generate']; ?></button>
+				<!-- This button is for canceling everything and returning to the lawyer page -->
+				<a class="btn btn-primary" href="caseSearch.php"><?php echo $lang['eCancel']; ?></a>
 			</div>
 		</div>
 
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-	
+		
 	</body>
 </html>
