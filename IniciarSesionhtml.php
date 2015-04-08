@@ -42,7 +42,7 @@
 					print $lang['userName'];
 					 ?>:
 					</label>
-					<input type="text" class="form-control" id="userName" maxlength="15" name="userName" placeholder="<?php print $lang['userName']; ?>" required>
+					<input type="text" class="form-control" id="userName" minlength="8" maxlength="15" name="userName" placeholder="<?php print $lang['userName']; ?>" required>
 				</div>
 
 				<p></p>
