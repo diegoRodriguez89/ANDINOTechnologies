@@ -2,6 +2,10 @@
 	//Includes the libraries to change the language of the page (english/spanish) and the navigational bar
 	include_once 'common.php';
 	include 'library.php';
+
+	if($_SESSION[job] <> 'admin'){
+		die("You are not allow in this page. :P");
+	}
 ?>
 
 <!DOCTYPE html>
