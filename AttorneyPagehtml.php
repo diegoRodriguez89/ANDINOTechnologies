@@ -11,17 +11,21 @@
 	$connectionInfo = array("Database"=>"PoliceTest", "UID"=>"sa", "PWD"=>"A06a30adr5d");
 	$conn = sqlsrv_connect($serverName, $connectionInfo);
 
-	//to verify if the connection with the server is successful
+	//Verify if the connection with the server is successful
 	if( !$conn ) {
   		die( print_r( sqlsrv_errors(), true));
 	}
 
+	if($_SESSION[job] <> 'attorney'){
+		die("You are not allow in this page. :P");
+	}
+
 	/*
-		If the attorney choose the option to see a document
-		$_POST['view'] has the value of the document's number
-		list($View) = keep the value of the  document's number in the variable $View
-		$_SESSION['docID'] keep the value of the document's number to pass to the other page
-		header = redirect to the page adminViewCasehtml.php
+		If the attorney chooses the option to view a document
+		$_POST['view'] contains the value of the document's number
+		list($View) = keeps the value of the  document's number in the variable $View
+		$_SESSION['docID'] keeps the value of the document's number to pass to the other page
+		header = redirects to the page adminViewCasehtml.php
 	*/
 	if(!empty($_POST['view']) and is_array($_POST['view'])) {
   	list($View) = $_POST['view'];
@@ -29,7 +33,7 @@
   	header("Location:attorneyViewCasehtml.php");
 	}
 
-	//to includes the library to change the language of the page
+	//Includes the libraries to change the language of the page (english/spanish) and the navigational bar
 	include_once 'common.php';
 	include 'library.php';
 ?>
@@ -85,6 +89,7 @@
 			-->
 
 				<div style='width:1123px;'>
+				<!-- A table is created with the header values of the case number, document type, deadline date and status of the document-->
 					<table>
 						<thead>
 		       		<tr>
