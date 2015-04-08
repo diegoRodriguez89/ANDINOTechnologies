@@ -2,6 +2,10 @@
 	//to includes the library to change the language of the page
 	include_once 'common.php';
 	include 'library.php';
+
+	if($_SESSION[job] <> 'admin'){
+		die("You are not allow in this page. :P");
+	}
 ?>
 
 <!DOCTYPE html>
