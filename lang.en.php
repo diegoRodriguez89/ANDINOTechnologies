@@ -1,5 +1,9 @@
 <?php   
 
+  /*
+  This file contains the variables and its value in the English language. 
+  */
+  
   $lang = array();
 
   //INDEX - INICIAR_SESION
@@ -13,12 +17,21 @@
   $lang['enter']        = 'Enter'; //Someter
   $lang['logout']       = 'Log Out'; //Salir
 
+  //CHANGE USER - INICIAR_SESION
+  $lang['changeUser']   = 'Change User';
+  $lang['oldUserName']  = 'Old User Name';
+  $lang['newUserName']  = 'New User Name';
+  $lang['oldPassword']  = 'Old Password';
+  $lang['newPassword']  = 'New Password';
+  $lang['confirmPassword']  = 'Confirm Password';
+  $lang['change']       = 'Change';
 
   //ADMIN PAGE
   $lang['adminPage']          = 'Administrator Page'; //Página del Administrador
   $lang['searchButton']       = 'Search';
   $lang['eList']              = 'Display Employee List'; //Mostrar Lista de Empleados
   $lang['genStats']           = 'Generate Statistics';  //Generar Estadísticas
+  $lang['stats']              = 'Statistics'; //Estadísticas
   $lang['case']               = 'Case'; //Caso
   $lang['docType']            = 'Document Type'; //Tipo de Documento
   $lang['dDate']              = 'Deadline Date'; //Fecha de Vencimiento
@@ -57,7 +70,7 @@
   $lang['eType_sargent']            = 'Sargent'; //Sargento
   $lang['eType_agent']              = 'Agent'; //Agente
   $lang['eType_cadet']              = 'Cadet'; //Cadetee
-  $lang['eType_adm_assistant']      = 'Adminstrative Assistant'; //Asistente Administrativa
+  $lang['eType_adm_assistant']      = 'Administrative Assistant'; //Asistente Administrativa
   $lang['eType_adm_system']         = 'System Administrator I'; //System Administrator I
   $lang['eType_adm_office_techs']   = 'Office Systems Technician III'; //Técnicas de Sistemas de Oficina III
   $lang['eTemporaryUser']           = 'Temporary Username';
@@ -131,5 +144,8 @@
   $lang['searchCaseHeader']  = 'Case Search'; //Búsqueda de Casos
   $lang['search_date']       = 'Date'; //Fecha
   $lang['apellant_name']     = 'Apellant Name'; //Nombre del Apelante
+
+  //STATISTICS
+  $lang['documentAmount']   = 'The Amount of Documents is';
 
 ?>
