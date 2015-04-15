@@ -1,0 +1,62 @@
+/*
+  Crea la tabla comments: contiene los comentarios de los docuemntos y quien los hizo
+   DocId - el numero de caso, referencia al numero de caso de la tabla de Documentos
+   NoteDate - es la fecha y hora en al que se hace el comentario
+   Notes - el comentario
+   Primary keys - el numero de caso, la fecha y hora en que se hace el comentario
+*/
+
+CREATE TABLE dbo.Comments
+	(EmployeeName varchar(20) NOT NULL,
+	 DocId varchar(15) NOT NULL,
+	 NoteDate datetime NOT NULL,
+	 Notes varchar(300) NOT NULL,
+	 CONSTRAINT PK_Comments PRIMARY KEY (DocId, NoteDate),
+	 FOREIGN KEY (DocId) REFERENCES Documents (DocNumber))
+GO
+
+/*
+  Crea la tabla de manejar docuemntos: guarda quien esta trabajando cada documento
+   DocId - el numero de caso, y primary key referencia al numero de caso de la tabla de Documentos
+   EmployeeName - licenciado que va a trabajar el caso en la LAOPRPD, referencia al nombre de usuario de la tabla de Empleado
+*/
+
+CREATE TABLE dbo.Manage
+	(DocId varchar(15) PRIMARY KEY NOT NULL,
+	 EmployeeName varchar(20) NOT NULL,
+	 FOREIGN KEY (DocId) REFERENCES Documents (DocNumber),
+	 FOREIGN KEY (EmployeeName) REFERENCES Employee (Username))
+GO
+
+/*
+  Crea la tabla de anadir documentos: guarda quien agrega cada documento
+   DocId - el numero de caso, y primary key referencia al numero de caso de la tabla de Documentos
+   EmployeeName - el nombre del usuario que agrega el documento al sistema
+*/
+
+CREATE TABLE dbo.AddDoc
+	(DocId varchar(15) PRIMARY KEY NOT NULL,
+	 EmployeeName varchar(20) NOT NULL,
+	 FOREIGN KEY (DocId) REFERENCES Documents (DocNumber),
+	 FOREIGN KEY (EmployeeName) REFERENCES Employee (Username))
+GO
+
+/*
+  Crea la tabla del historial: guarda los usuarios que trabajaron algun documento y se reasigno a otro usuario
+   DocId - el numero de caso, referencia al numero de caso de la tabla de Documentos
+   ChangeDate - fecha en la que se reasigna el documento a otro usuario
+   OldEmId - nombre de usuario que trabajo el documento
+   NewEmId - nombre de usuario a quien se le asigno el documento
+   Primary keys - el numero del documento y la fecha en que se reasigno el documento
+*/
+
+CREATE TABLE dbo.History
+	(DocId varchar(15) NOT NULL,
+	 ChangeDate datetime NOT NULL,
+	 OldEmId varchar(20) NOT NULL,
+	 NewEmId varchar(20) NOT NULL,
+	 CONSTRAINT PK_History PRIMARY KEY (DocId, ChangeDate),
+	 FOREIGN KEY (DocId) REFERENCES Documents (DocNumber),
+	 FOREIGN KEY (OldEmId) REFERENCES Employee (Username),
+	 FOREIGN KEY (NewEmId) REFERENCES Employee (Username))
+GO
