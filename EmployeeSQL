@@ -1,0 +1,34 @@
+/*
+  Crea la tabla de los titulos de los empleados: contiene las diferentes pocisiones de los usuarios y sus funcion con el sistema
+   Title - nombre del puesto del empleado
+   Job_Role - funcion del puesto en el sistema
+*/
+
+CREATE TABLE dbo.JobTitle
+	(Title varchar(50) PRIMARY KEY NOT NULL,
+	 Job_Role varchar(20) NOT NULL)
+GO
+
+/*
+  Crea la tabla de los empleados: contiene todos los empleados que pueden trabajar con el sistema
+   Username - nombre de usuario para entrar al sistema, y primary key de la tabla
+   UserPassword - password del usuario para entrar al sistema
+   Name - nombre del usuario
+   MiddleName - inicial del segundo nombre del usuario
+   LasName - apellido del usuario
+   MaidenName - segundo apellido del usuario
+   Office - la oficina donde trabaja el usuario
+   Job - el rango del usuario
+*/
+
+CREATE TABLE dbo.Employee
+	(Username varchar(20) PRIMARY KEY NOT NULL,
+	 UserPassword varchar(35) NOT NULL,
+	 Name varchar(20) NOT NULL,
+	 MiddleName varchar(2),
+	 LastName varchar(30) NOT NULL,
+	 MaidenName varchar(30),
+	 Office varchar(20) NOT NULL,
+	 Job varchar(50) NOT NULL,
+	 FOREIGN KEY (Job) REFERENCES JobTitle (Title) ON UPDATE CASCADE)
+GO
