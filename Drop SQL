@@ -1,0 +1,11 @@
+DROP TABLE History;
+DROP TABLE Comments;
+DROP TABLE Manage;
+DROP TABLE AddDoc;
+DROP TABLE Lawsuit;
+DROP TABLE Employee;
+DROP TABLE Documents;
+DROP TABLE Servicios;
+DROP TABLE Contracts;
+DROP TABLE Forums;
+DROP TABLE JobTitle;
