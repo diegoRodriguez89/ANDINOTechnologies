@@ -1,0 +1,105 @@
+/*
+  Crea la tabla de foros: guarda los diferentes foros de donde provienen los documentos
+   Foro - el nomber del foro de donde proviene el documento, y primary key
+*/
+CREATE TABLE dbo.Forums
+	(Foro varchar(100) PRIMARY KEY NOT NULL)
+GO
+
+/*
+  Crea la tabla de subcategoria: guarda las diferentes subcategorias de los casos
+   Subcat - nombre de la subcategoria, y primary key
+*/
+--quizas no funcione, porque si hay un causal nuevo tendrian que agregarlo antes de poder someter el documento
+CREATE TABLE dbo.Subcategory
+	(Subcat varchar(100) PRIMARY KEY NOT NULL)
+GO
+
+/*
+  Crea la tabla de los documentos: que guarda la informacion para tener un control de los casos
+   DocNumber - el numero de caso, y el primary key de la tabla
+   EntryDate - la fecha cuando se estampa el documento como recibido
+   CommunicationDate - la fecha en que se crea el documento
+   Deadline - fecha en que termina el termino de tiempo del documento
+   Apellant - apelante del caso
+   Sender - el licenciado que representa al apelante del caso
+   Precedence - el departamento de donde precede el caso
+   DocType - el tipo de documento ej.(demanda, mocion, etc.)
+   DocSubcategory - subcategoria del tipo de documento ej.(demanda: violacion de derechos)
+   DocDescription - breve descripcion del documento
+   Copy - referencia de la copia digital del documento
+   Status - el estado en que se encuentra el documento
+*/
+
+CREATE TABLE dbo.Documents
+	(DocNumber varchar(15) PRIMARY KEY NOT NULL,
+	 EntryDate date,
+	 CommunicationDate date,
+	 Deadline date,
+	 Appellant varchar(30) NOT NULL,
+	 Sender varchar(30) NOT NULL,
+	 Precedence varchar(100) NOT NULL,
+	 DocType varchar(20) NOT NULL,
+	 DocSubcategory varchar(100),
+	 DocDescription varchar(300) NOT NULL,
+	 Copy varchar(100),
+	 DocStatus varchar(10) DEFAULT 'No',
+	 FOREIGN KEY (Precedence) REFERENCES Forums (Foro) ON UPDATE CASCADE)
+GO
+
+
+/*
+  Crea la tabla de las demandas
+   LawsuitID - el numero de caso, referencia el numero de caso de la tabla de Documentos
+   Causales - causal de la demanda
+   Amount - la cantidad por la que se demanda
+   Primary keys - LawsuitID, Causales
+*/
+-- quizas agragarle las subcategorias a esta tabla y permitir que una demanda tenga mas de una subcateogira
+CREATE TABLE dbo.Lawsuit
+	(LawsuitID varchar(15) NOT NULL,
+	 Causales varchar(100) NOT NULL,
+	 Amount decimal(10,2) DEFAULT 0,
+	 CONSTRAINT PK_Lawsuit PRIMARY KEY (LawsuitID, Causales),
+	 FOREIGN KEY (LawsuitID) REFERENCES Documents (DocNumber))
+GO
+
+/*
+  Crea la tabla de los tipos de Servicios
+   Codigo - codigo de la categoria del servicio
+   Services - tipo de servicio
+   Categoria - categoria del servicio
+   Descripcion - descripcion del tipo de servicio
+   Primary keys - Codigo, Services
+*/
+CREATE TABLE dbo.Servicios
+	(Codigo int NOT NULL,
+	 Services varchar(100) NOT NULL,
+	 Categoria varchar(100) NOT NULL,
+	 Descripcion varchar(300),
+	 CONSTRAINT PK_Servicios PRIMARY KEY (Codigo, Services))
+GO
+
+/*
+  Crea la tabla de las contratos
+   ContractNumber - el numero de contrato, y el primary key de la tabla
+   DateGranted - la fecha cuando se radica el contrato
+   EffectiveFrom - la fecha en que inicia el contrato
+   EffectiveUntil - fecha en que termina el contrato
+   ContractorName - nombre del contratista
+   ServiceCategory - categoria del servicio
+   ServiceType - tipo de servicio especificado en el contrato
+   Quantity - precio del contrato
+   ContractSubject - breve descripcion del contrato
+*/
+CREATE TABLE dbo.Contracts
+	(ContractNumber varchar(15) PRIMARY KEY NOT NULL,
+	 DateGranted date,
+	 EffectiveFrom date,
+	 EffectiveUntil date,
+	 ContractorName varchar(30) NOT NULL,
+	 ServiceCategory varchar(100) NOT NULL,
+	 ServiceType varchar(100) NOT NULL,
+	 Quantity decimal(10,2) DEFAULT 0,
+	 ContractSubject varchar(300))
+GO
